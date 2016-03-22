@@ -1,6 +1,8 @@
 package net.fina.odftoolkit.performance;
 
 
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.odftoolkit.simple.SpreadsheetDocument;
 import org.odftoolkit.simple.table.Table;
 
@@ -10,7 +12,11 @@ import java.nio.file.Files;
 
 public abstract class OdfToolkitPerformanceTestBase {
 
-    public void processFile(int testSheetsCount, int colSize, int roxSize, String logName) throws Exception {
+    @Rule
+    public TestName name = new TestName();
+
+    public void processFile(int testSheetsCount, int colSize, int roxSize) throws Exception {
+        String logName = name.getMethodName();
         StatisticsLogger statLog = new StatisticsLogger(logName);
         statLog.logMessage("Start - " + logName);
 

@@ -9,16 +9,20 @@ public class OdfToolkitPerformanceTest extends OdfToolkitPerformanceTestBase {
 
     @Test
     public void test_1() throws Exception {
-        processFile(1, COL_SIZE, ROW_SIZE, "test 1");
+        process(1);
     }
 
     @Test
     public void test_2() throws Exception {
-        processFile(2, COL_SIZE, ROW_SIZE, "test 2");
+        process(2);
     }
 
     @Test
     public void test_10() throws Exception {
-        processFile(10, COL_SIZE, ROW_SIZE, "test 10");
+        process(10);
+    }
+
+    private void process(int testSheetsCount) throws Exception {
+        processFile(testSheetsCount, COL_SIZE, ROW_SIZE);
     }
 }
